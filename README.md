@@ -1,2 +1,3 @@
-# messenger
-instant messenger for private inbox
+# Messenger
+
+## react and firebase app for instant messenger
