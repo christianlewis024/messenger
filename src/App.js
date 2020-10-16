@@ -7,6 +7,8 @@ import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import Login from "./Login";
 import { auth } from "./firebase";
 import { useStateValue } from "./StateProvider";
+import Chat from "./Chat"
+import Sidebar from "./Sidebar"
 
 function App() {
   const [{user}, dispatch] = useStateValue();
@@ -33,28 +35,33 @@ function App() {
       }
     });
   }, []);
-
-  return (
-    <Router>
-      <div className="app">
-      {!user ?  <Login/> : (
-        <Switch>
+  return (    
+    <div className="app">
+      <Router>
+        {!user ? (
+          <Login/>
+        ) : (
+          <>
+        
+     <Header/>
+     <div className="app__body">
+      <Sidebar/>
+      <Switch>
+        <Route path="/room/:roomId">
+          <Chat/>
          
-          <Route path="/login">
-            <Login />
-          </Route>
-
-
-          <Route path="/">
-            <Header />
-            <Home />
-          </Route>
-
-
-        </Switch>
-      )}
-      </div>
-    </Router>
+        </Route>
+        <Route path="/">
+         
+        </Route>
+          
+      </Switch>   
+     {/* react-router -> chat screen*/}
+     </div>
+     </>
+     )}
+     </Router>     
+    </div>
   );
 }
 
