@@ -17,11 +17,12 @@ function SidebarOption({Icon, title, id,  addChannelOption}) {
 
     const addChannel = () => {
         const channelName = prompt('Enter the email of the person you wish to message')
+        const chatName = prompt('Enter the chat nickname')
 
         if ( channelName) {
-            db.collection('chats').doc(channelName + `:${user.email}`).set({
+            db.collection('chats').add({
                 
-                name: channelName,
+                name: chatName,
                 users: [channelName, user.email]
 
             })
