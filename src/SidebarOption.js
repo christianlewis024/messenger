@@ -14,7 +14,7 @@ function SidebarOption({Icon, title, id,  addChannelOption}) {
             history.push('title')
         }
     };
-
+    
     const addChannel = () => {
         const channelName = prompt('Enter the email of the person you wish to message')
         const chatName = prompt('Enter the chat nickname')
@@ -22,12 +22,13 @@ function SidebarOption({Icon, title, id,  addChannelOption}) {
         if ( channelName) {
             db.collection('chats').add({
                 
-                name: chatName,
+                name: channelName + `+ ${user.email}`,
                 users: [channelName, user.email]
 
             })
         }
     }
+   
     return (
         <div className="sidebarOption" onClick={addChannelOption ?  addChannel : selectChannel }>
            {Icon && <Icon className="sidebarOption__icon"/>}
