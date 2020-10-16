@@ -50,10 +50,7 @@ function Login() {
                     <button type='submit' onClick={signIn} className='login__signInButton'>Sign In</button>
                 </form>
 
-                <p>
-                    By signing-in you agree to the FAKE Conditions of Use. Please
-                    see our Privacy Notice, our Cookies Notice and our Interest-Based Ads Notice.
-                </p>
+                <p>Or create a new account </p>
 
                 <button onClick={register} className='login__registerButton'>Create your Account</button>
             </div>

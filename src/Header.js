@@ -16,11 +16,31 @@ function Header() {
             <Link to="/">
             <img className="header__logo" src="https://www.extremetech.com/wp-content/uploads/2017/10/AIM-Logo.png"/>
             </Link>
+
             <span className="header__optionLineOne">Hello {!user ? 'Guest' : user.email}</span>
+
             <Link to={!user && "/login"} className="header__link">
-            <div onClick={login} className="header__option">
-           
+            <div onClick={login} className="header__option">           
             <span className="header__optionLineTwo">{user ? 'Sign Out' : 'Sign In'}</span>
+            </div>
+            </Link>
+
+            <Link to="/" className="header__link">
+            <div className="header__option">
+            <span className="header__optionLineOne">Friends</span>            
+            </div>
+            </Link>
+
+            <Link to="/" className="header__link">
+            <div className="header__option">            
+            <span className="header__optionLineTwo">Notifications</span>
+            </div>
+            </Link>
+
+            <Link to="/" className="header__link">
+            <div className="header__option">            
+            <span className="header__optionLineOne">Return to </span>
+            <span className="header__optionLineTwo">the Sphere</span>
             </div>
             </Link>
         </div>
